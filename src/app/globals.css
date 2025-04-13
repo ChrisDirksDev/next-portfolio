@@ -1,26 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Code:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 @import "tailwindcss";
 
+@theme {
+  --sm: 40rem;
+  --md: 48rem;
+  --lg: 64rem;
+  --xl: 80rem;
+  --2xl: 90rem;
+}
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-color: #0d1117; /* Charcoal Black */
+  --secondary-color: #161b22; /* Dark Slate Gray */
+  --tertiary-color: #21262d; /* Dark Gray */
+  --accent-color: #58a6ff; /* Vibrant Blue */
+  --text-color: #c9d1d9; /* Soft White */
+  --font-heading: "Bebas Neue", sans-serif; /* Heading font */
+  --font-body: "Nunito", sans-serif; /* Body font */
+  --font-code: "Fira Code", monospace; /* Code font */
+  --size: 20px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html,
+  body {
+    font-family: var(--font-body);
+    background-color: var(--primary-color); /* Primary color */
+    color: var(--text-color); /* Text color */
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    color: var(--text-color);
+    letter-spacing: 0.2rem;
+  }
+
+  h1 {
+    @apply text-4xl font-semibold;
+  }
+  h2 {
+    @apply text-3xl font-semibold;
+  }
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+  h4 {
+    @apply text-xl font-semibold;
+  }
+  h5 {
+    @apply text-lg font-semibold;
+  }
+  h6 {
+    @apply text-base font-semibold;
+  }
+  p {
+    font-size: 1.1rem; /* 18px */
+    line-height: 1.5rem; /* 24px */
+    font-weight: 400;
+  }
+
+  /* Styling code sections */
+
+  a {
+    color: var(--accent-color);
+    svg:hover {
+      transform: scale(1.2);
+      transition: transform 0.2s;
+    }
+
+    h2:hover {
+      transform: scale(1.2);
+      transition: transform 0.2s;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .font-code {
+    font-family: var(--font-code);
+  }
+  .bg-primary {
+    background-color: var(--primary-color);
+  }
+  .bg-secondary {
+    background-color: var(--secondary-color);
+  }
+  .bg-tertiary {
+    background-color: var(--tertiary-color);
+  }
+  .bg-accent {
+    background-color: var(--accent-color);
+  }
+  .text-primary {
+    color: var(--text-color);
+  }
+  .text-secondary {
+    color: var(--secondary-color);
+  }
+  .text-accent {
+    color: var(--accent-color);
+  }
+  .container {
+    margin: 0 auto;
+  }
+}
+
+.code-examples {
+  .code-section ~ .code-section {
+    &::after {
+      @apply content-[''] block w-full h-[1px] bg-[var(--text-color)] my-10;
+    }
+  }
+}
+
+.input-fields {
+  @apply flex flex-col gap-4 mb-10;
+}
+.sheet-field {
+  @apply flex items-baseline gap-2 border-b-2 border-[var(--text-color)] pb-2;
+
+  .entry {
+    @apply text-xl tracking-[0.2rem];
+  }
+}
+
+.skills-section {
+  .skill-container {
+    ul {
+      @apply ml-2;
+      li {
+        @apply text-xl tracking-[0.2rem];
+      }
+    }
+  }
+}
+
+.hero-background::after {
+  @apply absolute left-0 top-0 w-full h-full content-[''] z-0;
+  background: conic-gradient(
+    from 180deg at 50% 70%,
+    hsla(0, 0%, 98%, 1) 0deg,
+    #eec32d 72.0000010728836deg,
+    #ec4b4b 144.0000021457672deg,
+    #709ab9 216.00000858306885deg,
+    #4dffbf 288.0000042915344deg,
+    hsla(0, 0%, 98%, 1) 1turn
+  );
+  mask: radial-gradient(circle at 50% 50%, white 2px, transparent 2.5px) 50% 50% /
+      var(--size) var(--size),
+    url("https://assets.codepen.io/605876/noise-mask.png") 256px 50% / 256px
+      256px;
+  mask-composite: intersect;
+  animation: flicker 20s infinite linear;
+}
+
+@keyframes flicker {
+  to {
+    mask-position: 50% 50%, 0 50%;
+  }
 }
