@@ -13,7 +13,7 @@ const links = [
     icon: FaLinkedin,
   },
   {
-    link: "/chrisdirks-resume.pdf",
+    link: "/resume.pdf",
     icon: FaDownload,
   },
 ];
