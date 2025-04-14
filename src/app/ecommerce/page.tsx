@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import PinnedSectionWithScrolling from "../components/PinnedSectionWithScrolling";
+import FeatureSection from "../components/FeatureSection";
 import Accordion from "../components/Accordian";
 import docs from "../utils/code";
 import CodeSection from "../components/CodeSection";
@@ -106,7 +106,7 @@ export default function EcommerceProject() {
   ];
 
   return (
-    <main className="min-h-screen px-4 py-12 pt-24">
+    <main className="min-h-screen px-8 py-12 pt-24">
       <div className="mx-auto flex flex-col gap-8">
         <section className="container">
           <div className="flex justify-center mb-12">
@@ -153,7 +153,7 @@ export default function EcommerceProject() {
 
         <section className="container">
           <h2 className="flex container">🔧 Features Built</h2>
-          <PinnedSectionWithScrolling />
+          <FeatureSection />
           <div className=" items-center">
             <h2>📚 Lessons Learned</h2>
             <p className="mt-4 ">
@@ -189,7 +189,7 @@ export default function EcommerceProject() {
             read.
           </p>
 
-          <h2 className="my-4 gap-4">📦 File Structure</h2>
+          <h2 className="my-8">📦 File Structure</h2>
           <TabbedDocs
             tabs={[
               {
@@ -313,7 +313,7 @@ export default function EcommerceProject() {
                           </li>
                           <li>The routes return the data to the client.</li>
                         </ul>
-                        <p className="mt-2">
+                        <p className="mt-4">
                           This flow allows for a clear separation of concerns,
                           and it allows for easy testing and debugging. Each
                           part of the application is responsible for a specific
@@ -378,7 +378,21 @@ export default function EcommerceProject() {
               height={450}
             />
             <Image
-              src="/ecommerce-screenshot.png"
+              src="/featured-products.png"
+              alt="E-Commerce Project Screenshot"
+              className="rounded-lg shadow-lg"
+              width={800}
+              height={450}
+            />
+            <Image
+              src="/product-details.png"
+              alt="E-Commerce Project Screenshot"
+              className="rounded-lg shadow-lg"
+              width={800}
+              height={450}
+            />
+            <Image
+              src="/login.png"
               alt="E-Commerce Project Screenshot"
               className="rounded-lg shadow-lg"
               width={800}

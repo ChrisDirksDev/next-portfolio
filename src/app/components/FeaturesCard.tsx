@@ -26,32 +26,30 @@ export const FeaturesCard = ({
     viewport: { once: true, amount: 0.2 },
   };
 
-  const imageOffset = infoPostion === "left" ? "md:ml-[20%]" : "md:mr-[20%]";
   return (
     <div
       className={classNames(
         "features-card rounded-lg shadow-md flex flex-col items-center justify-center bg-primary p-4 mb-8",
-        className,
-        imageOffset
+        className
       )}
     >
       <div className="relative flex flex-col md:flex-row items-center md:items-start md:justify-center">
         <motion.div
           className={classNames(
-            "bg-(--tertiary-color) rounded-lg p-4 flex flex-col items-center mt-4 md:absolute max-w-xs",
+            "bg-(--tertiary-color) rounded-lg p-2 mt-4 md:absolute max-w-xs text-xs sm:text-sm md:text-base text-center w-fit",
             infoStyle
           )}
           {...infoAnimation}
         >
-          <h3 className="mb-2">{title}</h3>
-          <p className="text-center">{description}</p>
+          <h3 className="mb-2 text-base md:text-lg lg:text-xl">{title}</h3>
+          <p className="text-xs md:text-sm lg:text-md">{description}</p>
         </motion.div>
         <Image
           src={img}
           alt={title}
-          width={500}
-          height={500}
-          className={classNames("mb-4")}
+          width={1000}
+          height={1000}
+          className={classNames("mb-4 flex-1")}
         />
       </div>
     </div>
